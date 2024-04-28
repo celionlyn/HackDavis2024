@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find My Dog</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        #container {
+            text-align: center;
+        }
+
+        img {
+            max-width: 300px;
+            max-height: 300px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>Find My Dog</h1>
+
+        <input type="file" accept="image/*" id="dogImageInput" onchange="previewImage(event)">
+        <img id="dogImage" src="#" alt="Dog Image" style="display: none;">
+
+        <div>
+            <label for="dogBreed">Dog's Breed:</label>
+            <input type="text" id="dogBreed">
+        </div>
+
+        <div>
+            <label for="dogAge">Dog's Age:</label>
+            <input type="text" id="dogAge">
+        </div>
+
+        <div>
+            <label for="missingDate">Date Missing:</label>
+            <input type="date" id="missingDate">
+        </div>
+
+        <div>
+            <label for="dogGender">Dog's Gender:</label>
+            <select id="dogGender">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+            </select>
+        </div>
+
+        <button onclick="submitForm()">Submit</button>
+
+        <p id="result" style="display: none;"></p>
+    </div>
+
+    <script>
+        function previewImage(event) {
+            const image = document.getElementById('dogImage');
+            const file = event.target.files[0];
+            const reader = new FileReader();
+
+            reader.onload = function() {
+                image.src = reader.result;
+                image.style.display = 'block';
+            };
+
+            reader.readAsDataURL(file);
+        }
+
+        function submitForm() {
+            const dogBreed = document.getElementById('dogBreed').value;
+            const dogAge = parseInt(document.getElementById('dogAge').value);
+            const missingDate = document.getElementById('missingDate').value;
+            const dogGender = document.getElementById('dogGender').value;
+            
+
+            if (dogBreed === 'German Shepherd' && dogAge === 2 && missingDate === '01/03/24' && dogGender === 'male') {
+                document.getElementById('dogImage').src = 'IMG_12011.jpg';
+                document.getElementById('result').textContent = "Your response matches this profile.\nYou can find your dog at Yolo County Animal Services Shelter.\nContact Info: (530) 668-5287";
+            } else {
+                document.getElementById('result').textContent = "Sorry, we couldn't find a match for your dog. Please try again.";
+            }
+
+            document.getElementById('result').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
