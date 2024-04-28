@@ -1,0 +1,56 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background-color: #008080;
+    color:rgb(255, 255, 255);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; 
+}
+
+.hero-container {
+    text-align: center;
+}
+
+.hero-image {
+    width: 300px; 
+    margin-bottom: -100px; 
+}
+
+.title {
+    font-size: 36px;
+}
+
+.description {
+    font-size: 18px;
+    max-width: 600px; 
+    margin: 0 auto; 
+    text-align: justify; 
+    line-height: 1.6; 
+}
+
+.button-container {
+    margin-top: 20px; 
+}
+
+button {
+    background-color: #ff9773;
+    margin: 20px 20px;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+button:hover {
+    background-color: #aa5134
+}
+
+::placeholder {
+    color:#ff9773;
+    opacity: 1;
+}

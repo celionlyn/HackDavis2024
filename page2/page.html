@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Find My Dog</title>
+    <link rel="stylesheet" href="page2style.css">
     <style>
         body {
             display: flex;
@@ -79,17 +80,19 @@
             const dogAge = parseInt(document.getElementById('dogAge').value);
             const missingDate = document.getElementById('missingDate').value;
             const dogGender = document.getElementById('dogGender').value;
-            
 
-            if (dogBreed === 'German Shepherd' && dogAge === 2 && missingDate === '01/03/24' && dogGender === 'male') {
+            if (dogBreed == 'German Shepherd' && dogAge == 2 && missingDate == '01/03/24' && dogGender == 'Male') {
                 document.getElementById('dogImage').src = 'IMG_12011.jpg';
-                document.getElementById('result').textContent = "Your response matches this profile.\nYou can find your dog at Yolo County Animal Services Shelter.\nContact Info: (530) 668-5287";
-            } else {
                 document.getElementById('result').textContent = "Sorry, we couldn't find a match for your dog. Please try again.";
-            }
+            } else {
+                console.log("Name:", dogBreed);
+                console.log("Age:", dogAge);
 
+                document.getElementById('result').textContent = "Your response matches this profile.\nYou can find your dog at Yolo County Animal Services Shelter.\nContact Info: (530) 668-5287";
+            }
+            
             document.getElementById('result').style.display = 'block';
         }
-    </script>
+           </script>
 </body>
 </html>
